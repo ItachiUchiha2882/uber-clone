@@ -1,14 +1,14 @@
 import React from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import tw from 'twrnc';
+import NavOptions from '../components/NavOptions';
 
 const HomeScreen = () => {
   console.log("Homescreen started");
 
   return (
-    <SafeAreaView style={tw`border-2 border-blue-500 bg-white h-full`}>
-      {/* <Text style={[tw`text-red-500 p-10`, styles.text]}>HomeScreen</Text> */}
-      <View style={tw`border border-red-500 p-5`}>
+    <SafeAreaView style={tw`bg-white h-full`}>
+      <View style={tw`border p-5`}> 
         <Image
           style={{
             width : 100, 
@@ -20,6 +20,7 @@ const HomeScreen = () => {
           }}
         />
       </View>
+      <NavOptions/>
     </SafeAreaView>
   )
 };
