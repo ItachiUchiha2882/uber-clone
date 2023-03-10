@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
@@ -19,8 +20,10 @@ const data = [
   },
 ];
 
+// const NavOptions = ({navigation}) => { // alternate method...
 const NavOptions = () => {
   console.log("NavOptions started");
+  const navigation = useNavigation();
 
   return (
     <FlatList
@@ -28,7 +31,10 @@ const NavOptions = () => {
       horizontal
       keyExtractor = {(item) => item.id}
       renderItem = {({ item }) => (
-        <TouchableOpacity style={tw`border`}>
+        <TouchableOpacity 
+          style={tw`border h-72`}
+          onPress={() => {navigation.navigate(item.screen)}}
+        >
           <View style={tw`border bg-gray-200 p-5 m-4 w-45`}>
             <Image
               style = {{
